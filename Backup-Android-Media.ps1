@@ -31,6 +31,8 @@ function Invoke-Adb {
     $psi.RedirectStandardOutput = $true
     $psi.RedirectStandardError = $true
     $psi.CreateNoWindow = $true
+    $psi.StandardOutputEncoding = [System.Text.Encoding]::UTF8
+    $psi.StandardErrorEncoding = [System.Text.Encoding]::UTF8
     $psi.Arguments = (($Arguments | ForEach-Object {
         '"' + ($_ -replace '(\\*)"', '$1$1\"') + '"'
     }) -join ' ')
